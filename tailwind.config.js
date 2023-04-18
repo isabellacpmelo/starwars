@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('assets/img/home-background.jpg')",
+        'hero-pattern': "url('assets/img/home-background.png')",
       },
       fontFamily: {
         'star-wars': ['Star Wars', 'sans-serif'],

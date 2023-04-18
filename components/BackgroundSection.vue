@@ -8,10 +8,11 @@
 
 <script>
 export default {
+  name: 'BackgroundSection',
   props: {
     bgClass: {
       type: String,
-      default: 'bg-white',
+      default: 'bg-black',
     },
     py: {
       type: String,
