@@ -2,11 +2,13 @@
   <section>
     <BackgroundSection bg-class="bg-hero-pattern" class="bg-cover min-h-screen">
       <template #content>
-        <div class="justify-between flex flex-col fit-submenu">
+        <div class="justify-between flex flex-col">
           <div
             class="pt-8 lg:pt-12 xl:pt-36 pb-6 lg:pb-0 my-6 lg:mt-0 lg:mb-0 border-b border-solid border-gray-700 border-opacity-20"
           >
-            <h1 class="text-7xl font-medium text-white">Star Wars</h1>
+            <h1 class="text-7xl font-medium font-star-wars text-white">
+              Star Wars
+            </h1>
           </div>
         </div>
       </template>

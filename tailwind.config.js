@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         'hero-pattern': "url('assets/img/home-background.jpg')",
       },
+      fontFamily: {
+        'star-wars': ['Star Wars', 'sans-serif'],
+      },
     },
   },
   plugins: [],
@@ -16,7 +19,6 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
   ],
-  darkMode: false,
   variants: {
     extend: {},
   },
