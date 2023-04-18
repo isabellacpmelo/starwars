@@ -2,7 +2,7 @@
   <section>
     <BackgroundSection
       :bg-class="heroImage"
-      class="bg-cover min-h-screen .bg-overlay"
+      class="bg-cover min-h-screen"
       py="0"
     >
       <template #content>
