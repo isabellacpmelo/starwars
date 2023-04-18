@@ -2,7 +2,11 @@
 module.exports = {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('assets/img/home-background.jpg')",
+      },
+    },
   },
   plugins: [],
   purge: [
@@ -17,4 +21,3 @@ module.exports = {
     extend: {},
   },
 }
-
