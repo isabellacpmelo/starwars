@@ -9,6 +9,9 @@ module.exports = {
       fontFamily: {
         'star-wars': ['Star Wars', 'sans-serif'],
       },
+      colors: {
+        'banana-yellow': '#FFE81F',
+      },
     },
   },
   plugins: [],
