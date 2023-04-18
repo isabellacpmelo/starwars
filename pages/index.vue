@@ -11,7 +11,7 @@
       class="bg-cover max-h-screen overflow-y-auto"
     >
       <template #content>
-        <div class="flex flex-wrap">
+        <div class="md:flex md:flex-wrap">
           <div v-for="(person, index) in people" :key="index" class="w-1/3 p-4">
             <a href="#">
               <PersonCard :person-name="person.name" />
