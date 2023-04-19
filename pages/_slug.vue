@@ -6,57 +6,68 @@
     >
       <template #heroContent>
         <div class="flex flex-col md:flex-row items-center justify-between">
-          <nuxt-link to="/">
-            <button
-              class="bg-banana-yellow text-gray-950 font-mono font-bold py-2 px-4 rounded-lg mb-4 md:mb-0"
-            >
-              Back
-            </button>
-          </nuxt-link>
           <div class="w-full md:w-1/2 px-8">
+            <nuxt-link to="/">
+              <button
+                class="bg-banana-yellow text-gray-950 font-mono font-bold py-2 px-4 rounded-lg mb-4 md:mb-0"
+              >
+                Back
+              </button>
+            </nuxt-link>
             <img
               :src="personImage"
               :alt="name"
               :title="name"
-              class="w-full h-auto rounded-lg border border-gray-900"
+              class="w-full h-auto rounded-lg border border-gray-900 mt-6"
             />
           </div>
           <div class="w-full md:w-1/2 px-8 mt-4 md:mt-0">
-            <ul class="text-banana-yellow font-mono text-lg md:text-2xl">
-              <li><span class="font-extrabold">Name:</span> {{ name }}</li>
-              <li><span class="font-extrabold">Height: </span> {{ height }}</li>
-              <li><span class="font-extrabold">Mass: </span>{{ mass }}</li>
-              <li>
-                <span class="font-extrabold">Hair Color: </span>{{ hairColor }}
+            <ul
+              class="text-banana-yellow font-mono capitalize text-lg md:text-2xl"
+            >
+              <li class="pb-1">
+                <span class="font-extrabold">Name: </span> {{ name }}
               </li>
-              <li>
-                <span class="font-extrabold">Skin Color: </span>{{ skinColor }}
+              <li class="pb-1">
+                <span class="font-extrabold">Height: </span> {{ height }}
               </li>
-              <li>
-                <span class="font-extrabold">Eye Color:</span> {{ eyeColor }}
+              <li class="pb-1">
+                <span class="font-extrabold">Mass: </span> {{ mass }}
               </li>
-              <li>
-                <span class="font-extrabold">Birth Year: {{ birthYear }} </span>
+              <li class="pb-1">
+                <span class="font-extrabold">Hair Color: </span> {{ hairColor }}
               </li>
-              <li><span class="font-extrabold">Gender: </span>{{ gender }}</li>
-              <li>
-                <span class="font-extrabold">Homeworld:</span> {{ homeworld }}
+              <li class="pb-1">
+                <span class="font-extrabold">Skin Color: </span> {{ skinColor }}
               </li>
-              <li>
-                <span class="font-extrabold">Films: </span
-                >{{ replaceMovies(films.toString()) }}
+              <li class="pb-1">
+                <span class="font-extrabold">Eye Color: </span> {{ eyeColor }}
               </li>
-              <li>
-                <span class="font-extrabold">Species: </span
-                >{{ replaceMovies(species.toString()) }}
+              <li class="pb-1">
+                <span class="font-extrabold">Birth Year: </span> {{ birthYear }}
               </li>
-              <li>
-                <span class="font-extrabold">Vehicles: </span
-                >{{ replaceMovies(vehicles.toString()) }}
+              <li class="pb-1">
+                <span class="font-extrabold">Gender: </span> {{ gender }}
               </li>
-              <li>
-                <span class="font-extrabold">Starships: </span
-                >{{ replaceMovies(starships.toString()) }}
+              <li class="pb-1">
+                <span class="font-extrabold">Homeworld: </span>
+                {{ homeworld }}
+              </li>
+              <li class="pb-1">
+                <span class="font-extrabold">Films: </span>
+                {{ replaceMovies(films.toString()) }}
+              </li>
+              <li class="pb-1">
+                <span class="font-extrabold">Species: </span>
+                {{ replaceMovies(species.toString()) }}
+              </li>
+              <li class="pb-1">
+                <span class="font-extrabold"> Vehicles: </span>
+                {{ replaceMovies(vehicles.toString()) }}
+              </li>
+              <li class="pb-1">
+                <span class="font-extrabold"> Starships: </span>
+                {{ replaceMovies(starships.toString()) }}
               </li>
             </ul>
           </div>
