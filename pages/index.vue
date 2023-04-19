@@ -3,19 +3,17 @@
     <HeroSection
       hero-image="bg-hero-pattern"
       title="Star Wars <br /> Catalogue"
-      subtitle="Escolha um dos persornagens abaixo para saber mais"
+      subtitle="Choose a character below and click to learn more"
     >
       <template #heroContent>
         <div>
-          <div class="md:flex md:flex-wrap max-h-[50vh] overflow-y-auto">
-            <div
-              v-for="(person, index) in people"
-              :key="index"
-              class="w-1/3 p-4"
-            >
-              <a href="#">
+          <div
+            class="md:flex md:flex-wrap justify-center max-h-[50vh] overflow-y-auto"
+          >
+            <div v-for="(person, index) in people" :key="index" class="p-4">
+              <div class="px-4">
                 <PersonCard :person-name="person.name" />
-              </a>
+              </div>
             </div>
             <div ref="endOfList"></div>
           </div>
@@ -90,3 +88,19 @@ export default {
   },
 }
 </script>
+
+<style>
+::-webkit-scrollbar {
+  display: none;
+  width: 2px; /* Width Scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #00000000; /* Background color scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffe81f; /* Scrollbar button color */
+  border-radius: 20px;
+}
+</style>
