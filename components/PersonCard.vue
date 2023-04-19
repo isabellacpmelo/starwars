@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-md p-4 bg-gray-950 border border-banana-yellow rounded-lg shadow"
+    class="max-w-sm p-4 bg-gray-950 border border-banana-yellow rounded-lg shadow"
   >
     <img
       class="rounded-lg border border-gray-900"
