@@ -2,44 +2,53 @@
   <section>
     <hero-section hero-image="bg-hero-pattern" :title="name">
       <template #heroContent>
-        <div class="md:flex items-center justify-between">
+        <div class="flex flex-col md:flex-row items-center justify-between">
           <nuxt-link to="/">
             <button
-              class="bg-banana-yellow text-gray-950 font-mono font-bold py-2 px-4 rounded-lg"
+              class="bg-banana-yellow text-gray-950 font-mono font-bold py-2 px-4 rounded-lg mb-4 md:mb-0"
             >
               Back
             </button>
           </nuxt-link>
-          <div class="md:w-1/2 px-8">
+          <div class="w-full md:w-1/2 px-8">
             <img
-              :src="`https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/people/${slug}.jpeg`"
+              :src="personImage"
               :alt="name"
               :title="name"
-              class="w-auto h-44 md:h-96 rounded-lg border border-gray-900"
+              class="w-full h-auto rounded-lg border border-gray-900"
             />
           </div>
-          <div class="text-banana-yellow font-mono text-2xl md:w-1/2 px-8">
-            <ul>
-              <li><span class="font-bold">Name:</span> {{ name }}</li>
-              <li><span class="font-bold">Height: </span> {{ height }}</li>
-              <li><span class="font-bold">Mass: </span>{{ mass }}</li>
+          <div class="w-full md:w-1/2 px-8">
+            <ul class="text-banana-yellow font-mono text-lg md:text-2xl">
+              <li><span class="font-extrabold">Name:</span> {{ name }}</li>
+              <li><span class="font-extrabold">Height: </span> {{ height }}</li>
+              <li><span class="font-extrabold">Mass: </span>{{ mass }}</li>
               <li>
-                <span class="font-bold">Hair Color: </span>{{ hairColor }}
+                <span class="font-extrabold">Hair Color: </span>{{ hairColor }}
               </li>
               <li>
-                <span class="font-bold">Skin Color: </span>{{ skinColor }}
+                <span class="font-extrabold">Skin Color: </span>{{ skinColor }}
               </li>
-              <li><span class="font-bold">Eye Color:</span> {{ eyeColor }}</li>
               <li>
-                <span class="font-bold">Birth Year: {{ birthYear }} </span>/li>
+                <span class="font-extrabold">Eye Color:</span> {{ eyeColor }}
               </li>
-
-              <li><span class="font-bold">Gender: </span>{{ gender }}</li>
-              <li><span class="font-bold">Homeworld:</span> {{ homeworld }}</li>
-              <li><span class="font-bold">Films: </span>{{ films }}</li>
-              <li><span class="font-bold">Species: </span>{{ species }}</li>
-              <li><span class="font-bold">Vehicles: </span>{{ vehicles }}</li>
-              <li><span class="font-bold">Starships: </span>{{ starships }}</li>
+              <li>
+                <span class="font-extrabold">Birth Year: {{ birthYear }} </span>
+              </li>
+              <li><span class="font-extrabold">Gender: </span>{{ gender }}</li>
+              <li>
+                <span class="font-extrabold">Homeworld:</span> {{ homeworld }}
+              </li>
+              <li><span class="font-extrabold">Films: </span>{{ films }}</li>
+              <li>
+                <span class="font-extrabold">Species: </span>{{ species }}
+              </li>
+              <li>
+                <span class="font-extrabold">Vehicles: </span>{{ vehicles }}
+              </li>
+              <li>
+                <span class="font-extrabold">Starships: </span>{{ starships }}
+              </li>
             </ul>
           </div>
         </div>
@@ -76,9 +85,8 @@ export default {
     slug() {
       return this.$route.params.slug
     },
-    image() {
-      // You can add an image URL for the person here
-      return ''
+    personImage() {
+      return `https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/people/${this.slug}.jpeg`
     },
   },
   async mounted() {
