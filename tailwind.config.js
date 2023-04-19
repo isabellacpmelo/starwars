@@ -8,6 +8,7 @@ module.exports = {
       },
       fontFamily: {
         'star-wars': ['Star Wars', 'sans-serif'],
+        'star-wars-secondary': ['Star Wars Secondary', 'sans-serif'],
       },
       colors: {
         'banana-yellow': '#FFE81F',

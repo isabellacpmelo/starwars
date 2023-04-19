@@ -8,3 +8,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Star Wars Secondary';
+  src: url('~assets/fonts/Starjout.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
