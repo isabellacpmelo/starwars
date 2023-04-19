@@ -1,6 +1,6 @@
 <template>
   <section>
-    <HeroSection
+    <hero-section
       hero-image="bg-hero-pattern"
       title="Star Wars <br /> Catalogue"
       subtitle="Choose a character below and click to learn more"
@@ -12,14 +12,17 @@
           >
             <div v-for="(person, index) in people" :key="index" class="p-4">
               <div class="px-4">
-                <PersonCard :person-name="person.name" />
+                <PersonCard
+                  :person-name="person.name"
+                  :person-slug="person.slug"
+                />
               </div>
             </div>
             <div ref="endOfList"></div>
           </div>
         </div>
       </template>
-    </HeroSection>
+    </hero-section>
   </section>
 </template>
 
@@ -61,12 +64,26 @@ export default {
     }
   },
   methods: {
+    processName(name) {
+      // remove accents and convert to lowercase
+      let slug = name
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+      // replace spaces with hyphens
+      slug = slug.replace(/ /g, '-')
+      return slug
+    },
     async fetchData(url) {
       try {
         this.loading = true
         const res = await fetch(url)
         const data = await res.json()
-        this.allData = this.allData.concat(data.results)
+        // process each person's name and add to allData array
+        data.results.forEach((person) => {
+          const slug = this.processName(person.name)
+          this.allData.push({ name: person.name, slug })
+        })
         if (!data.next) {
           this.reachedEnd = true
           this.observer.disconnect()
