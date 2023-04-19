@@ -3,6 +3,13 @@
     <hero-section hero-image="bg-hero-pattern" :title="name">
       <template #heroContent>
         <div class="md:flex items-center justify-between">
+          <nuxt-link to="/">
+            <button
+              class="bg-banana-yellow text-gray-950 font-mono font-bold py-2 px-4 rounded-lg"
+            >
+              Back
+            </button>
+          </nuxt-link>
           <div class="md:w-1/2 px-8">
             <img
               :src="`https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/people/${slug}.jpeg`"
@@ -11,7 +18,7 @@
               class="w-auto h-44 md:h-96 rounded-lg border border-gray-900"
             />
           </div>
-          <div class="text-banana-yellow font-mono text-3xl md:w-1/2 py-8 px-8">
+          <div class="text-banana-yellow font-mono text-2xl md:w-1/2 px-8">
             <ul>
               <li><span class="font-bold">Name:</span> {{ name }}</li>
               <li><span class="font-bold">Height: </span> {{ height }}</li>
