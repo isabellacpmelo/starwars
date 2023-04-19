@@ -6,17 +6,15 @@
       subtitle="Escolha um dos persornagens abaixo para saber mais"
     >
       <template #heroContent>
-        <div>
-          <div class="md:flex md:flex-wrap max-h-[50vh] overflow-y-auto">
-            <div
-              v-for="(person, index) in people"
-              :key="index"
-              class="w-1/3 p-4"
-            >
-              <a href="#">
-                <PersonCard :person-name="person.name" />
-              </a>
-            </div>
+        <div
+          ref="cardContainer"
+          class="md:flex md:flex-wrap max-h-[50vh] overflow-y-auto"
+          @scroll="handleScroll"
+        >
+          <div v-for="(person, index) in people" :key="index" class="w-1/3 p-4">
+            <a href="#">
+              <PersonCard :person-name="person.name" />
+            </a>
           </div>
         </div>
       </template>
@@ -37,6 +35,7 @@ export default {
   data() {
     return {
       allData: [],
+      nextUrl: null,
     }
   },
   async fetch() {
@@ -44,8 +43,7 @@ export default {
   },
   computed: {
     people() {
-      const people = this.allData
-      return people
+      return this.allData
     },
   },
   methods: {
@@ -53,10 +51,15 @@ export default {
       const res = await fetch(url)
       const data = await res.json()
       this.allData = this.allData.concat(data.results)
+      this.nextUrl = data.next
+    },
+    handleScroll() {
+      const container = this.$refs.cardContainer
+      const containerBottom = container.offsetHeight + container.offsetTop
+      const windowBottom = window.innerHeight + window.pageYOffset
 
-      if (data.next) {
-        // if there is a next page, fetch it
-        await this.fetchData(data.next)
+      if (containerBottom < windowBottom && this.nextUrl !== null) {
+        this.fetchData(this.nextUrl)
       }
     },
   },
