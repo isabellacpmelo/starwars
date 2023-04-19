@@ -1,7 +1,7 @@
 <template>
-  <section :class="`w-full ${bgClass} ${py} ${px}`">
+  <section :class="`w-full ${background} ${py} ${px}`">
     <div :class="`${containerClass} mx-auto`">
-      <slot name="content" />
+      <slot name="content"></slot>
     </div>
   </section>
 </template>
@@ -10,21 +10,21 @@
 export default {
   name: 'BackgroundSection',
   props: {
-    bgClass: {
+    background: {
       type: String,
       default: 'bg-black',
-    },
-    py: {
-      type: String,
-      default: 'py-16',
-    },
-    px: {
-      type: String,
-      default: 'px-6',
     },
     containerClass: {
       type: String,
       default: 'container',
+    },
+    py: {
+      type: String,
+      default: 'py-0',
+    },
+    px: {
+      type: String,
+      default: 'px-0',
     },
   },
 }

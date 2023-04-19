@@ -1,7 +1,7 @@
 <template>
   <section>
-    <BackgroundSection
-      :bg-class="heroImage"
+    <background-section
+      :background="heroImage"
       class="bg-cover min-h-screen"
       py="16"
     >
@@ -20,12 +20,12 @@
               </p>
             </div>
             <div>
-              <slot name="heroContent" />
+              <slot name="heroContent"></slot>
             </div>
           </div>
         </section>
       </template>
-    </BackgroundSection>
+    </background-section>
   </section>
 </template>
 
