@@ -2,7 +2,7 @@
   <div
     class="w-72 md:w-96 p-4 bg-gray-950 border border-banana-yellow rounded-lg shadow"
   >
-    <nuxt-link :to="`/${personSlug}`">
+    <nuxt-link :to="`/${personName}`">
       <img
         class="rounded-lg border border-gray-900"
         :src="`https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/people/${personName.replaceAll(
@@ -15,7 +15,7 @@
     </nuxt-link>
 
     <div class="pt-4 pb-2">
-      <nuxt-link :to="`/${personSlug}`">
+      <nuxt-link :to="`/${personName}`">
         <h2
           class="text-center md:text-2xl text-banana-yellow font-star-wars-secondary"
         >

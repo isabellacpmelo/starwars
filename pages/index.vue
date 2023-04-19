@@ -12,10 +12,7 @@
           >
             <div v-for="(person, index) in people" :key="index" class="p-4">
               <div class="px-4">
-                <PersonCard
-                  :person-name="person.name"
-                  :person-slug="person.slug"
-                />
+                <PersonCard :person-name="person.name" />
               </div>
             </div>
             <div ref="endOfList"></div>
@@ -64,16 +61,6 @@ export default {
     }
   },
   methods: {
-    processName(name) {
-      // remove accents and convert to lowercase
-      let slug = name
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .toLowerCase()
-      // replace spaces with hyphens
-      slug = slug.replace(/ /g, '-')
-      return slug
-    },
     async fetchData(url) {
       try {
         this.loading = true
@@ -81,8 +68,7 @@ export default {
         const data = await res.json()
         // process each person's name and add to allData array
         data.results.forEach((person) => {
-          const slug = this.processName(person.name)
-          this.allData.push({ name: person.name, slug })
+          this.allData.push({ name: person.name })
         })
         if (!data.next) {
           this.reachedEnd = true
