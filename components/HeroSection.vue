@@ -3,18 +3,24 @@
     <BackgroundSection
       :bg-class="heroImage"
       class="bg-cover min-h-screen"
-      py="0"
+      py="16"
     >
       <template #content>
-        <section class="flex items-center min-h-screen">
+        <section class="flex items-center justify-center">
           <div class="container">
             <div
-              class="flex flex-col justify-center items-center font-star-wars text-banana-yellow"
+              class="flex flex-col justify-center items-center font-star-wars text-banana-yellow p-8"
             >
-              <h1 class="mb-6 text-5xl md:text-8xl font-medium">{{ title }}</h1>
+              <h1
+                class="mb-6 text-5xl md:text-8xl font-medium"
+                v-html="title"
+              ></h1>
               <p class="my-6 md:text-xl">
                 {{ subtitle }}
               </p>
+            </div>
+            <div>
+              <slot name="heroContent" />
             </div>
           </div>
         </section>
