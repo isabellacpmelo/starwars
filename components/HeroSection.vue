@@ -4,6 +4,7 @@
       :background="heroImage"
       class="bg-cover min-h-screen"
       py="16"
+      px="4"
     >
       <template #content>
         <section class="flex items-center justify-center">
@@ -48,7 +49,7 @@ export default {
     },
     subtitle: {
       type: String,
-      default: 'Escolha um dos persornagens abaixo para saber mais',
+      default: '',
     },
   },
 }
