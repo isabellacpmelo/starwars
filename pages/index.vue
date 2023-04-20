@@ -59,13 +59,10 @@ export default {
   watch: {
     onlyFavorites: function (value) {
       if (value) {
-        const favoriteData = JSON.parse(localStorage.getItem('favorites')) || []
-        this.allData = this.allData.filter((character) =>
-          Object.values(favoriteData).some(
-            (favorite) => favorite.name === character.name
-          )
-        )
+        const favoriteData = JSON.parse(localStorage.getItem('favorites')) || {}
+        this.allData = favoriteData
       } else {
+        this.allData = []
         this.fetchData(`https://swapi.dev/api/people/?page=1`)
       }
     },
