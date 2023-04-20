@@ -2,15 +2,11 @@
   <div class="flex items-center">
     <svg
       aria-hidden="true"
-      class="text-banana-yellow w-7 h-7"
-      :class="{
-        'text-banana-yellow': isFavorite,
-        'text-gray-400': !isFavorite,
-      }"
+      class="w-7 h-7"
+      :class="starColor"
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
-      @click="isFavorite = !isFavorite"
     >
       <title>Star Favorite</title>
       <path
@@ -23,10 +19,11 @@
 <script>
 export default {
   name: 'StarFavorite',
-  data() {
-    return {
-      isFavorite: false,
-    }
+  props: {
+    starColor: {
+      type: String,
+      default: 'text-gray-400',
+    },
   },
 }
 </script>
