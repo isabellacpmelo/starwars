@@ -99,7 +99,6 @@ export default {
       species: [],
       vehicles: [],
       starships: [],
-      loading: false,
     }
   },
   computed: {
@@ -112,7 +111,6 @@ export default {
   },
   async mounted() {
     try {
-      this.loading = true
       const res = await fetch(
         `https://swapi.dev/api/people/?search=${this.slug}`
       )
@@ -126,7 +124,6 @@ export default {
       this.eyeColor = character.eye_color
       this.birthYear = character.birth_year
       this.gender = character.gender
-      this.loading = false
       const homeworldRes = await fetch(character.homeworld)
       const homeworldData = await homeworldRes.json()
       this.homeworld = homeworldData.name
