@@ -1,10 +1,10 @@
 <template>
   <div
-    class="w-72 md:w-96 md:h-80 p-4 bg-gray-950 border border-banana-yellow rounded-lg shadow"
+    class="w-72 md:w-96 md:h-64 p-4 bg-gray-950 border border-banana-yellow rounded-lg shadow"
   >
     <nuxt-link :to="`/${character.name.replaceAll(' ', '%20')}`">
       <img
-        class="rounded-lg border border-gray-900"
+        class="rounded-lg border border-gray-900 w-full h-40 object-cover"
         :src="`https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/people/${character.name.replaceAll(
           ' ',
           '%20'
