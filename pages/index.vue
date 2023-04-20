@@ -10,9 +10,9 @@
           <div
             class="md:flex md:flex-wrap justify-center max-h-[50vh] overflow-y-auto"
           >
-            <div v-for="(person, index) in people" :key="index" class="p-4">
+            <div v-for="(character, index) in allData" :key="index" class="p-4">
               <div class="px-4">
-                <person-card :person="person" />
+                <character-card :character="character" />
               </div>
             </div>
             <div ref="endOfList"></div>
@@ -25,26 +25,20 @@
 
 <script>
 import HeroSection from '../components/HeroSection'
-import PersonCard from '../components/PersonCard'
+import CharacterCard from '../components/CharacterCard'
 
 export default {
   name: 'IndexPage',
   components: {
     HeroSection,
-    PersonCard,
+    CharacterCard,
   },
   data() {
     return {
       allData: [],
       loading: false,
       page: 1,
-      reachedEnd: false,
     }
-  },
-  computed: {
-    people() {
-      return this.allData
-    },
   },
   async mounted() {
     const options = {
@@ -66,11 +60,10 @@ export default {
         this.loading = true
         const res = await fetch(url)
         const data = await res.json()
-        data.results.forEach((person) => {
-          this.allData.push({ name: person.name, isFavorite: false })
+        data.results.forEach((character) => {
+          this.allData.push({ name: character.name, isFavorite: false })
         })
         if (!data.next) {
-          this.reachedEnd = true
           this.observer.disconnect()
         }
         this.loading = false
@@ -81,7 +74,7 @@ export default {
     },
     handleIntersection(entries) {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !this.loading && !this.reachedEnd) {
+        if (entry.isIntersecting && !this.loading) {
           this.page++
           this.fetchData(`https://swapi.dev/api/people/?page=${this.page}`)
         }
