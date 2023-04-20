@@ -8,6 +8,21 @@
       <template #heroContent>
         <div>
           <div
+            class="flex justify-start md:justify-center items-center mx-8 my-2"
+          >
+            <label
+              class="bg-black text-banana-yellow font-mono text-xl tracking-wide font-semibold mr-2"
+            >
+              Only your favorites:
+            </label>
+            <input
+              checked
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />
+          </div>
+          <div
             class="md:flex md:flex-wrap justify-center max-h-[50vh] overflow-y-auto"
           >
             <div v-for="(character, index) in allData" :key="index" class="p-4">
@@ -84,7 +99,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss" scoped>
 ::-webkit-scrollbar {
   display: none;
   width: 2px; /* Width Scrollbar */
@@ -97,5 +112,10 @@ export default {
 ::-webkit-scrollbar-thumb {
   background-color: #ffe81f; /* Scrollbar button color */
   border-radius: 20px;
+}
+
+.check-box-class {
+  @apply w-6 h-6 rounded;
+  background: #ffe81f;
 }
 </style>
