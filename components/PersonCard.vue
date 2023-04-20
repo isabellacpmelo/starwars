@@ -22,13 +22,21 @@
           {{ personName.toLocaleLowerCase() }}
         </h2>
       </nuxt-link>
-      <star-favorite />
+      <star-favorite
+        :is-favorite="isFavorite"
+        :star-color="{
+          'text-banana-yellow': isFavorite,
+          'text-gray-400': !isFavorite,
+        }"
+        @click="isFavorite = !isFavorite"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import StarFavorite from './StarFavorite'
+
 export default {
   name: 'PersonCard',
   components: {
@@ -39,10 +47,11 @@ export default {
       type: String,
       default: 'Luke Skywalker',
     },
-    personSlug: {
-      type: String,
-      default: 'luke-skywalker',
-    },
+  },
+  data() {
+    return {
+      isFavorite: false,
+    }
   },
 }
 </script>
