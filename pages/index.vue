@@ -12,10 +12,10 @@
           >
             <div v-for="(person, index) in people" :key="index" class="p-4">
               <div class="px-4">
-                <PersonCard
+                <person-card
                   :person="person"
                   :is-favorite="person.isFavorite"
-                  @toggle-favorite="person.isFavorite = $event"
+                  @toggle-favorite="updateFavorite(index)"
                 />
               </div>
             </div>
@@ -43,7 +43,6 @@ export default {
       loading: false,
       page: 1,
       reachedEnd: false,
-      isFavorite: false,
     }
   },
   computed: {
@@ -73,7 +72,7 @@ export default {
         const data = await res.json()
         // process each person's name and add to allData array
         data.results.forEach((person) => {
-          this.allData.push({ name: person.name, isFavorite: this.isFavorite })
+          this.allData.push({ name: person.name, isFavorite: false })
         })
         if (!data.next) {
           this.reachedEnd = true
@@ -93,6 +92,25 @@ export default {
         }
       })
     },
+    updateFavorite(index) {
+      this.allData[index].isFavorite = !this.allData[index].isFavorite
+    },
   },
 }
 </script>
+
+<style>
+::-webkit-scrollbar {
+  display: none;
+  width: 2px; /* Width Scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #00000000; /* Background color scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffe81f; /* Scrollbar button color */
+  border-radius: 20px;
+}
+</style>

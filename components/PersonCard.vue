@@ -43,14 +43,15 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    isFavorite: {
-      type: Boolean,
-      default: false,
+  },
+  computed: {
+    isFavorite() {
+      return this.person.isFavorite
     },
   },
   methods: {
     toggleFavorite() {
-      this.$emit('toggle-favorite', !this.person.isFavorite)
+      this.$emit('update:person', this.person)
     },
   },
 }
