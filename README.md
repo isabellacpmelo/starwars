@@ -1,10 +1,10 @@
 # Star Wars Catalogue
 
 <div align="left">
- <a href=""><img height="180em" alt="Star Wars Catalogue" src="https://raw.githubusercontent.com/isabellacpmelo/isabellacpmelo/main/assets/img/meu-emoji.png" /></a>
+<a href="https://main--stirring-smakager-e07852.netlify.app/"><img height="180em" alt="Star Wars Catalogue" src="https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/star-wars-catalogue.png" /></a>
 </div>
 </br>
-<a href="">Clique aqui para entrar no site:</a>
+<a href="https://main--stirring-smakager-e07852.netlify.app/">Clique aqui para entrar no site:</a>
 
 ## About the project
 
@@ -18,20 +18,6 @@ Catalog of characters from the Star Wars universe
 - [Prettier 2.7.1](https://prettier.io/)
 - [Eslint 8.24.0](https://eslint.org/)
 - [Postcss 8.4.22](https://postcss.org/)
-
-### Screenshot
-
-#### Home Page
-
-- Desktop
-
-- Mobile
-
-#### Character Page
-
-- Desktop
-
-- Mobile
 
 ## Default Documentation Nuxt
 
