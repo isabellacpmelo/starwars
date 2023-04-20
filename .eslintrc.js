@@ -12,6 +12,7 @@ module.exports = {
   plugins: [],
   // add your custom rules here
   rules: {
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'unicorn/escape-case': 'off',
     'object-shorthand': 'off',
     'no-console': 'off',
