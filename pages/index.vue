@@ -12,11 +12,7 @@
           >
             <div v-for="(person, index) in people" :key="index" class="p-4">
               <div class="px-4">
-                <person-card
-                  :person="person"
-                  :is-favorite="person.isFavorite"
-                  @toggle-favorite="updateFavorite(index)"
-                />
+                <person-card :person="person" />
               </div>
             </div>
             <div ref="endOfList"></div>
@@ -43,7 +39,6 @@ export default {
       loading: false,
       page: 1,
       reachedEnd: false,
-      favorites: [], // adicionando a propriedade 'favorites' com um valor inicial vazio
     }
   },
   computed: {
@@ -59,7 +54,6 @@ export default {
     this.observer = new IntersectionObserver(this.handleIntersection, options)
     this.observer.observe(this.$refs.endOfList)
     await this.fetchData(`https://swapi.dev/api/people/?page=${this.page}`)
-    this.loadFavorites()
   },
   beforeDestroy() {
     if (this.observer) {
@@ -91,25 +85,6 @@ export default {
           this.page++
           this.fetchData(`https://swapi.dev/api/people/?page=${this.page}`)
         }
-      })
-    },
-    updateFavorite(index) {
-      this.allData[index].isFavorite = !this.allData[index].isFavorite
-      this.saveFavorites()
-    },
-    saveFavorites() {
-      const favorites = this.allData.filter((person) => person.isFavorite)
-      localStorage.setItem('favorites', JSON.stringify(favorites))
-    },
-    loadFavorites() {
-      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]')
-      this.favorites = Array.isArray(favorites)
-        ? favorites
-        : Object.values(favorites)
-      this.allData.forEach((person) => {
-        person.isFavorite = this.favorites.some(
-          (favorite) => favorite.name === person.name
-        )
       })
     },
   },
