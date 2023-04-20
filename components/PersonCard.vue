@@ -22,10 +22,7 @@
           {{ person.name.toLocaleLowerCase() }}
         </h2>
       </nuxt-link>
-      <star-favorite
-        :is-favorite="isFavorite"
-        @toggle-favorite="toggleFavorite"
-      />
+      <star-favorite :is-favorite="isFavorite" @click="toggleFavorite" />
     </div>
   </div>
 </template>
@@ -44,14 +41,22 @@ export default {
       default: () => ({}),
     },
   },
+  data() {
+    return {
+      localPerson: {},
+    }
+  },
   computed: {
     isFavorite() {
-      return this.person.isFavorite
+      return this.localPerson.isFavorite
     },
+  },
+  created() {
+    this.localPerson = Object.assign({}, this.person)
   },
   methods: {
     toggleFavorite() {
-      this.$emit('update:person', this.person)
+      this.localPerson.isFavorite = !this.localPerson.isFavorite
     },
   },
 }
