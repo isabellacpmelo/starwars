@@ -2,24 +2,24 @@
   <div
     class="w-72 md:w-96 md:h-80 p-4 bg-gray-950 border border-banana-yellow rounded-lg shadow"
   >
-    <nuxt-link :to="`/${person.name.replaceAll(' ', '%20')}`">
+    <nuxt-link :to="`/${character.name.replaceAll(' ', '%20')}`">
       <img
         class="rounded-lg border border-gray-900"
-        :src="`https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/people/${person.name.replaceAll(
+        :src="`https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/people/${character.name.replaceAll(
           ' ',
           '%20'
         )}.jpeg`"
-        :alt="person.name"
-        :title="person.name"
+        :alt="character.name"
+        :title="character.name"
       />
     </nuxt-link>
 
     <div class="px-4 pt-4 pb-2 flex justify-between">
-      <nuxt-link :to="`/${person.name.replaceAll(' ', '%20')}`">
+      <nuxt-link :to="`/${character.name.replaceAll(' ', '%20')}`">
         <h2
           class="text-center md:text-2xl text-banana-yellow font-star-wars-secondary"
         >
-          {{ person.name.toLocaleLowerCase() }}
+          {{ character.name.toLocaleLowerCase() }}
         </h2>
       </nuxt-link>
       <star-favorite :is-favorite="isFavorite" @click="toggleFavorite" />
@@ -36,35 +36,35 @@ export default {
     StarFavorite,
   },
   props: {
-    person: {
+    character: {
       type: Object,
       default: () => ({}),
     },
   },
   data() {
     return {
-      localPerson: {},
+      localcharacter: {},
     }
   },
   computed: {
     isFavorite() {
-      return this.localPerson.isFavorite
+      return this.localcharacter.isFavorite
     },
   },
   created() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || {}
-    this.localPerson = Object.assign({}, this.person, {
-      isFavorite: favorites[this.person.name]
-        ? favorites[this.person.name].isFavorite
+    this.localcharacter = Object.assign({}, this.character, {
+      isFavorite: favorites[this.character.name]
+        ? favorites[this.character.name].isFavorite
         : false,
     })
   },
 
   methods: {
     toggleFavorite() {
-      this.localPerson.isFavorite = !this.localPerson.isFavorite
+      this.localcharacter.isFavorite = !this.localcharacter.isFavorite
       const favorites = JSON.parse(localStorage.getItem('favorites')) || {}
-      favorites[this.localPerson.name] = this.localPerson
+      favorites[this.localcharacter.name] = this.localcharacter
       localStorage.setItem('favorites', JSON.stringify(favorites))
     },
   },

@@ -15,7 +15,7 @@
               </button>
             </nuxt-link>
             <img
-              :src="personImage"
+              :src="characterImage"
               :alt="name"
               :title="name"
               class="w-full h-auto rounded-lg border border-gray-900 mt-6"
@@ -106,7 +106,7 @@ export default {
     slug() {
       return this.$route.params.slug
     },
-    personImage() {
+    characterImage() {
       return `https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/people/${this.slug}.jpeg`
     },
   },
@@ -117,22 +117,22 @@ export default {
         `https://swapi.dev/api/people/?search=${this.slug}`
       )
       const data = await res.json()
-      const person = data.results[0]
-      this.name = person.name
-      this.height = person.height
-      this.mass = person.mass
-      this.hairColor = person.hair_color
-      this.skinColor = person.skin_color
-      this.eyeColor = person.eye_color
-      this.birthYear = person.birth_year
-      this.gender = person.gender
+      const character = data.results[0]
+      this.name = character.name
+      this.height = character.height
+      this.mass = character.mass
+      this.hairColor = character.hair_color
+      this.skinColor = character.skin_color
+      this.eyeColor = character.eye_color
+      this.birthYear = character.birth_year
+      this.gender = character.gender
       this.loading = false
-      const homeworldRes = await fetch(person.homeworld)
+      const homeworldRes = await fetch(character.homeworld)
       const homeworldData = await homeworldRes.json()
       this.homeworld = homeworldData.name
 
       const filmsData = []
-      for (const film of person.films) {
+      for (const film of character.films) {
         const filmRes = await fetch(film)
         const filmData = await filmRes.json()
         filmsData.push(filmData.title)
@@ -140,8 +140,8 @@ export default {
       this.films = filmsData
 
       const speciesData = []
-      if (person.species.length > 0) {
-        for (const specie of person.species) {
+      if (character.species.length > 0) {
+        for (const specie of character.species) {
           const specieRes = await fetch(specie)
           const specieData = await specieRes.json()
           speciesData.push(specieData.name)
@@ -152,8 +152,8 @@ export default {
       }
 
       const vehiclesData = []
-      if (person.vehicles.length > 0) {
-        for (const vehicle of person.vehicles) {
+      if (character.vehicles.length > 0) {
+        for (const vehicle of character.vehicles) {
           const vehicleRes = await fetch(vehicle)
           const vehicleData = await vehicleRes.json()
           vehiclesData.push(vehicleData.name)
@@ -164,8 +164,8 @@ export default {
       }
 
       const starshipsData = []
-      if (person.starships.length > 0) {
-        for (const starship of person.starships) {
+      if (character.starships.length > 0) {
+        for (const starship of character.starships) {
           const starshipRes = await fetch(starship)
           const starshipData = await starshipRes.json()
           starshipsData.push(starshipData.name)
