@@ -16,7 +16,7 @@
               Only your favorites:
             </label>
             <input
-              checked
+              v-model="onlyFavorites"
               type="checkbox"
               value=""
               class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -53,7 +53,22 @@ export default {
       allData: [],
       loading: false,
       page: 1,
+      onlyFavorites: false,
     }
+  },
+  watch: {
+    onlyFavorites: function (value) {
+      if (value) {
+        const favoriteData = JSON.parse(localStorage.getItem('favorites')) || []
+        this.allData = this.allData.filter((character) =>
+          Object.values(favoriteData).some(
+            (favorite) => favorite.name === character.name
+          )
+        )
+      } else {
+        this.fetchData(`https://swapi.dev/api/people/?page=1`)
+      }
+    },
   },
   async mounted() {
     const options = {
@@ -75,8 +90,14 @@ export default {
         this.loading = true
         const res = await fetch(url)
         const data = await res.json()
+
         data.results.forEach((character) => {
-          this.allData.push({ name: character.name, isFavorite: false })
+          const favoriteData =
+            JSON.parse(localStorage.getItem('favorites')) || []
+          const isFavorite =
+            Array.isArray(favoriteData) &&
+            favoriteData.some((favorite) => favorite.name === character.name)
+          this.allData.push({ name: character.name, isFavorite })
         })
         if (!data.next) {
           this.observer.disconnect()
