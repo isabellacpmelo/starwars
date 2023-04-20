@@ -56,6 +56,11 @@ export default {
       onlyFavorites: false,
     }
   },
+  head() {
+    return {
+      title: 'Star Wars Catalogue',
+    }
+  },
   watch: {
     onlyFavorites: function (value) {
       if (value) {

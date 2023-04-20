@@ -99,6 +99,11 @@ export default {
       starships: [],
     }
   },
+  head() {
+    return {
+      title: `${this.name} | Star Wars`,
+    }
+  },
   computed: {
     slug() {
       return this.$route.params.slug
