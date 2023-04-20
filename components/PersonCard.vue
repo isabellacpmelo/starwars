@@ -52,11 +52,22 @@ export default {
     },
   },
   created() {
-    this.localPerson = Object.assign({}, this.person)
+    // recupera os dados do localStorage e converte-os de JSON para objeto
+    const favorites = JSON.parse(localStorage.getItem('favorites'))
+    if (favorites && favorites[this.person.name]) {
+      this.localPerson = Object.assign({}, this.person, { isFavorite: true })
+    } else {
+      this.localPerson = Object.assign({}, this.person, { isFavorite: false })
+    }
   },
   methods: {
     toggleFavorite() {
       this.localPerson.isFavorite = !this.localPerson.isFavorite
+      // converte os dados de objeto para JSON e salva no localStorage
+      localStorage.setItem(
+        'favorites',
+        JSON.stringify({ [this.localPerson.name]: this.localPerson.isFavorite })
+      )
     },
   },
 }

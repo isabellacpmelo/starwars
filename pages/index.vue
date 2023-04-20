@@ -43,6 +43,7 @@ export default {
       loading: false,
       page: 1,
       reachedEnd: false,
+      favorites: [], // adicionando a propriedade 'favorites' com um valor inicial vazio
     }
   },
   computed: {
@@ -58,6 +59,7 @@ export default {
     this.observer = new IntersectionObserver(this.handleIntersection, options)
     this.observer.observe(this.$refs.endOfList)
     await this.fetchData(`https://swapi.dev/api/people/?page=${this.page}`)
+    this.loadFavorites()
   },
   beforeDestroy() {
     if (this.observer) {
@@ -70,7 +72,6 @@ export default {
         this.loading = true
         const res = await fetch(url)
         const data = await res.json()
-        // process each person's name and add to allData array
         data.results.forEach((person) => {
           this.allData.push({ name: person.name, isFavorite: false })
         })
@@ -94,6 +95,22 @@ export default {
     },
     updateFavorite(index) {
       this.allData[index].isFavorite = !this.allData[index].isFavorite
+      this.saveFavorites()
+    },
+    saveFavorites() {
+      const favorites = this.allData.filter((person) => person.isFavorite)
+      localStorage.setItem('favorites', JSON.stringify(favorites))
+    },
+    loadFavorites() {
+      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]')
+      this.favorites = Array.isArray(favorites)
+        ? favorites
+        : Object.values(favorites)
+      this.allData.forEach((person) => {
+        person.isFavorite = this.favorites.some(
+          (favorite) => favorite.name === person.name
+        )
+      })
     },
   },
 }
