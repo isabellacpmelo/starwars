@@ -9,7 +9,7 @@
           <div class="w-full md:w-1/2 px-8">
             <nuxt-link to="/">
               <button
-                class="bg-banana-yellow text-gray-950 font-mono font-bold pb-2 px-4 rounded-lg mb-4 md:mb-0"
+                class="bg-banana-yellow text-gray-950 font-mono font-bold py-2 px-4 rounded-lg my-2 md:mb-0"
               >
                 Back
               </button>
