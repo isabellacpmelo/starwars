@@ -51,6 +51,24 @@ export default {
       return this.localcharacter.isFavorite
     },
   },
+  watch: {
+    isChecked: {
+      immediate: true,
+      handler(newValue) {
+        if (newValue) {
+          const favorites = JSON.parse(localStorage.getItem('favorites')) || {}
+          if (
+            favorites[this.character.name] &&
+            favorites[this.character.name].isFavorite
+          ) {
+            this.localcharacter.isFavorite = true
+          } else {
+            this.localcharacter.isFavorite = false
+          }
+        }
+      },
+    },
+  },
   created() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || {}
     this.localcharacter = Object.assign({}, this.character, {
@@ -64,7 +82,15 @@ export default {
     toggleFavorite() {
       this.localcharacter.isFavorite = !this.localcharacter.isFavorite
       const favorites = JSON.parse(localStorage.getItem('favorites')) || {}
-      favorites[this.localcharacter.name] = this.localcharacter
+
+      const characterName = this.localcharacter.name
+      const isAlreadySaved = !!favorites[characterName]
+
+      if (this.localcharacter.isFavorite && !isAlreadySaved) {
+        favorites[characterName] = this.localcharacter
+      } else if (!this.localcharacter.isFavorite && isAlreadySaved) {
+        delete favorites[characterName]
+      }
       localStorage.setItem('favorites', JSON.stringify(favorites))
     },
   },
