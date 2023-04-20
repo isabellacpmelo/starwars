@@ -4,7 +4,7 @@
 <a href="https://main--stirring-smakager-e07852.netlify.app/"><img height="180em" alt="Star Wars Catalogue" src="https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/star-wars-catalogue.png" /></a>
 </div>
 </br>
-<a href="https://main--stirring-smakager-e07852.netlify.app/">Clique aqui para entrar no site:</a>
+<a href="https://main--stirring-smakager-e07852.netlify.app/">Click here to access the website</a>
 
 ## About the project
 
