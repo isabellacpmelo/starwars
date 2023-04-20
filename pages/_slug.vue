@@ -9,7 +9,7 @@
           <div class="w-full md:w-1/2 px-8">
             <nuxt-link to="/">
               <button
-                class="bg-banana-yellow text-gray-950 font-mono font-bold py-2 px-4 rounded-lg mb-4 md:mb-0"
+                class="bg-banana-yellow text-gray-950 font-mono font-bold pb-2 px-4 rounded-lg mb-4 md:mb-0"
               >
                 Back
               </button>
@@ -21,10 +21,8 @@
               class="w-full h-auto rounded-lg border border-gray-900 mt-6"
             />
           </div>
-          <div class="w-full md:w-1/2 px-8 mt-4 md:mt-0">
-            <ul
-              class="text-banana-yellow font-mono capitalize text-lg md:text-2xl"
-            >
+          <div class="w-full md:w-1/2 px-8 my-4 md:my-0">
+            <ul class="text-banana-yellow font-mono capitalize md:text-lg">
               <li class="pb-1">
                 <span class="font-extrabold">Name: </span> {{ name }}
               </li>
@@ -65,7 +63,7 @@
                 <span class="font-extrabold"> Vehicles: </span>
                 {{ replaceMovies(vehicles.toString()) }}
               </li>
-              <li class="pb-1">
+              <li>
                 <span class="font-extrabold"> Starships: </span>
                 {{ replaceMovies(starships.toString()) }}
               </li>
