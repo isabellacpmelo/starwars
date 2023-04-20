@@ -1,6 +1,39 @@
-# starwars-website
+# Star Wars Catalogue
 
-## Build Setup
+<div align="left">
+ <a href=""><img height="180em" alt="Star Wars Catalogue" src="https://raw.githubusercontent.com/isabellacpmelo/isabellacpmelo/main/assets/img/meu-emoji.png" /></a>
+</div>
+</br>
+<a href="">Clique aqui para entrar no site:</a>
+
+## About the project
+
+Catalog of characters from the Star Wars universe
+
+### Technologies
+
+- [Vue.js 2.7.10](https://vuejs.org/)
+- [Nuxt.js 2.15.8](https://nuxtjs.org/)
+- [Tailwind 3.3.1](https://tailwindcss.com/)
+- [Prettier 2.7.1](https://prettier.io/)
+- [Eslint 8.24.0](https://eslint.org/)
+- [Postcss 8.4.22](https://postcss.org/)
+
+### Screenshot
+
+#### Home Page
+
+- Desktop
+
+- Mobile
+
+#### Character Page
+
+- Desktop
+
+- Mobile
+
+## Default Documentation Nuxt
 
 ```bash
 # install dependencies
