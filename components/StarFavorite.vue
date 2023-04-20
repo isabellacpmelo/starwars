@@ -3,11 +3,14 @@
     <svg
       aria-hidden="true"
       class="w-7 h-7"
-      :class="starColor"
+      :class="{
+        'text-banana-yellow': isFavorite,
+        'text-gray-400': !isFavorite,
+      }"
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
-      @click="$emit('click')"
+      @click="handleClick"
     >
       <title>Star Favorite</title>
       <path
@@ -26,12 +29,14 @@ export default {
       default: false,
     },
   },
-  computed: {
-    starColor() {
-      return {
-        'text-banana-yellow': this.isFavorite,
-        'text-gray-400': !this.isFavorite,
-      }
+  data() {
+    return {
+      starColor: '',
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$emit('click')
     },
   },
 }
