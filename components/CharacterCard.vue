@@ -41,6 +41,11 @@ export default {
       default: () => ({}),
     },
   },
+  data() {
+    return {
+      localcharacter: {},
+    }
+  },
   computed: {
     isFavorite() {
       return this.localcharacter.isFavorite
