@@ -7,6 +7,7 @@
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
+      @click="$emit('click')"
     >
       <title>Star Favorite</title>
       <path
@@ -20,9 +21,17 @@
 export default {
   name: 'StarFavorite',
   props: {
-    starColor: {
-      type: String,
-      default: 'text-gray-400',
+    isFavorite: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    starColor() {
+      return {
+        'text-banana-yellow': this.isFavorite,
+        'text-gray-400': !this.isFavorite,
+      }
     },
   },
 }
