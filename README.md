@@ -1,14 +1,20 @@
 # Star Wars Catalogue
 
 <div align="left">
-<a href="https://star-wars-catal.netlify.app/"><img height="180em" alt="Star Wars Catalogue" src="https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/star-wars-catalogue.png" /></a>
+  <a href="https://star-wars-catal.netlify.app/">
+    <img height="180em" alt="Star Wars Catalogue" src="https://raw.githubusercontent.com/isabellacpmelo/starwars/main/assets/img/star-wars-catalogue.png" />
+  </a>
 </div>
 </br>
-<a href="https://star-wars-catal.netlify.app/">Click here to access the website</a>
+<a href="https://star-wars-catal.netlify.app/">
+Click here to access the website
+</a>
 
 ## About the project
 
-Catalog of characters from the Star Wars universe
+Star Wars Catalogue is a web application that displays an organized collection of characters from the Star Wars universe. Each profile includes an image, name, and a dynamic route with more information, providing an engaging experience for fans of the saga.
+
+The application was built using Nuxt.js for SSR/static generation, combined with Vue 2, TailwindCSS, and PostCSS to deliver a responsive and visually cohesive design.
 
 ### Technologies
 
@@ -19,69 +25,83 @@ Catalog of characters from the Star Wars universe
 - [Eslint 8.24.0](https://eslint.org/)
 - [Postcss 8.4.22](https://postcss.org/)
 
-## Default Documentation Nuxt
+## Getting Started
 
+### Install dependencies:
 ```bash
-# install dependencies
 $ npm install
+```
 
-# serve with hot reload at localhost:3000
+### Run development server with hot reload:
+```bash
 $ npm run dev
+```
 
-# build for production and launch server
+### Build for production:
+```bash
 $ npm run build
 $ npm run start
+```
 
-# generate static project
+### Build for production:
+```bash
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+## Project structure
 
-## Special Directories
+```
+📦starwars
+ ┣ 📂assets
+ ┃ ┣ 📂css
+ ┃ ┃ ┗ 📜tailwind.css
+ ┃ ┣ 📂fonts
+ ┃ ┃ ┣ 📜Starjedi.ttf
+ ┃ ┃ ┗ 📜Starjout.ttf
+ ┃ ┗ 📂img
+ ┃ ┃ ┣ 📂people
+ ┃ ┃ ┃ ┣ 📜Ackbar.jpeg
+ ┃ ┃ ┃ ┣ 📜[...].jpeg
+ ┃ ┃ ┣ 📜home-background.png
+ ┃ ┃ ┗ 📜star-wars-catalogue.png
+ ┣ 📂components
+ ┃ ┣ 📜BackgroundSection.vue
+ ┃ ┣ 📜CharacterCard.vue
+ ┃ ┣ 📜HeroSection.vue
+ ┃ ┗ 📜StarFavorite.vue
+ ┣ 📂pages
+ ┃ ┣ 📜index.vue
+ ┃ ┗ 📜_slug.vue
+ ┣ 📂static
+ ┃ ┗ 📜favicon.ico
+ ┣ 📂store
+ ┃ ┗ 📜README.md
+ ┣ 📜.editorconfig
+ ┣ 📜.eslintrc.js
+ ┣ 📜.gitignore
+ ┣ 📜.prettierignore
+ ┣ 📜.prettierrc
+ ┣ 📜jsconfig.json
+ ┣ 📜LICENSE
+ ┣ 📜now.json
+ ┣ 📜nuxt.config.js
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┣ 📜README.md
+ ┗ 📜tailwind.config.js
+```
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+## Nuxt Directory Highlights
+Some key folders and their purposes:
 
-### `assets`
+- pages/: Where routing and views are automatically generated.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+- components/: Reusable components like CharacterCard, HeroSection.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+- assets/: Includes Tailwind config, Star Wars fonts and image library.
 
-### `components`
+- static/: Public files served directly, like favicon.ico.
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+- store/: Optional Vuex integration.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+For detailed explanations, refer to the Nuxt.js documentation: https://v2.nuxt.com/pt/
